@@ -1,0 +1,18 @@
+.index{
+    background-color: rgb(185, 198, 209);
+}
+.single{
+    background-color: rgb(185, 198, 209);
+    height: 600px;
+}
+.single1{
+    background-color: rgb(185, 198, 209);
+}
+.delete{
+    background-color: rgb(185, 198, 209);
+    height: 620px;
+}
+h3{
+    text-align: center;
+    text-transform: uppercase;
+}
