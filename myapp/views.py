@@ -127,3 +127,38 @@ def delete_post(request, pk):
 
     context = { 'obj':post }
     return render(request, 'delete.html', context)
+
+
+class ProfileList(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    def get(self, request, format=None):
+        profiles= Profile.objects.all()
+        serializers= ProfileSerializer(profiles, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers= ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.data, status=status.HTTP_400_BAD_REQUEST)
+
+    # def 
+
+
+
+class ProjectList(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get(self, request, format=None):
+        project= Projects.objects.all()
+        serializers= ProjectSerializer(project, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers= ProjectSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.data, status=status.HTTP_400_BAD_REQUEST)
+
