@@ -25,3 +25,28 @@ class Profile(models.Model):
 
     def update_profile(self):
         self.save()
+
+
+class Projects(models.Model):
+    title = models.CharField(max_length=122)
+    image = models.ImageField(default='default.jpg', upload_to='images/')
+    description = models.TextField()
+    live_link = models.URLField(max_length=222, default='url')
+    posted_by = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE )
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
+
+    @classmethod
+    def search_by_title(cls,search_term):
+        projects = cls.objects.filter(title__icontains=search_term)
+        return projects
+
+
+    def __str__(self):
+        return self.title
