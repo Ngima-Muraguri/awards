@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Rubik+Wet+Paint&display=swap');
+.index{
+    background: url("/static/images/image.jpg") 50% 0 no-repeat fixed;
+    color: white;
+    height: 580px;
+    /* padding: 100px 0 0 0;   */
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+h1{
+    text-align: center;
+    font-size: 94px;
+    font-weight: bold;
+    font-family: 'Satisfy', cursive;
+    padding-top: 132px;
+    text-shadow: 4px 4px orangered;
+}
+.anchor{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+.anchor>a{
+    color: #fff;
+    font-size: 40px;
+
+}
+.anchor>a:hover{
+    color: orangered;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+
+}
