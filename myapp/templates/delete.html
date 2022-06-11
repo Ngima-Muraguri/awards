@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load bootstrap5 %}
+
+{% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <style>
+.delete{
+    background-color: rgb(185, 198, 209);
+    height: 620px;
+    text-align: center;
+}
+p{
+    padding-top: 134px;
+    font-size: 42px;
+    font-weight: bold;
+}
+  </style>
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'styles/projects.css' %}"> {% endblock %} {% block content %}
+<main class="container-fluid delete">
+    <div class="container">
+        <form class="delete-form" action="" method="POST">
+            {% csrf_token %}
+            <p>Are you sure you want to delete <span>"{{obj}}"</span>?</p>
+            <div class="delete-footer">
+                <a class="btn btn-secondary" href="{{ request.META.HTTP_REFERER }}">Go back</a>
+                <input class="btn btn-danger" type="submit" value="Yes">
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}

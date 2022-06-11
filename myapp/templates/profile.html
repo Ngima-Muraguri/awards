@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Profile</title>
+  {{form.media}}
+
+
+</head>
+
+<body>
+  {% block content %}
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+  {% endblock %}
+
+  <div class="container-fluid single1">
+    <div class="container row ">
+      <h2>Profile Information</h2>
+      <div class="col-md-6">
+        <h2>Update your profile information Here</h2>
+        <form action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+
+          {% bootstrap_form form%}
+          <input type="submit" class="btn btn-primary btn-md" value="Update">
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <h2>View your profile information Here</h2>
+        <div class="container row">
+          <div class="col-md-6">
+            <img src="{{user.profile.profile_pic.url}}" alt="img" width="100px" class="rounded-circle z-depth-2">
+          </div>
+          <div class="col-md-6">
+            <h4>Username: {{user.username}}</h4> <br>
+            <h4>Email: {{user.email}}</h4> <br>
+            <h4>Bio: {{user.profile.bio}}</h4> <br>
+            <h4>Contacts: {{user.profile.contact}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4> <strong>Projects:</strong> </h4>
+    <div class="row">
+    {% for proj in project %}
+    <div class="col-lg-4">
+      <img src="{{proj.image.url}}" alt="" width="341rem">
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+
+
+  {% endblock %}
+
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
+
+
+</body>
+
+</html>

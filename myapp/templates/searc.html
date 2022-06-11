@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+
+{% block content %}
+    <h1>Hello {{user}} </h1>
+    {{project.title}}
+
+    {% if project %}
+    {% for proj in project %}
+      <div class="col-sm-6 col-md-3">
+        <h1>hello</h1>
+      </div>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

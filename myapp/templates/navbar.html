@@ -1,0 +1,36 @@
+{% load bootstrap5 %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand my-3" href="/" style="font-family: 'Inspiration', cursive;">Awards</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+             
+            </li>
+        </ul>
+        {% if user.is_authenticated %}
+
+        <form class="navbar-form " role="search" action="{% url 'search' %} ">
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="image">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">Search</button>
+
+        </form> 
+        <a class='btn btn-default' href="{% url 'profile' %}"> Profile</a>
+        <a class='btn btn-default' href="{% url 'newProject' %}">Upload Project</a>
+            <a class='btn btn-default' href="/accounts/logout">Logout</a>
+        {% else %}
+        <span class="navbar-text">
+            <!-- <a class='btn btn-default' href="/accounts/login">Login</a>
+            <a class='btn btn-default' href="/accounts/register">Register</a> -->
+        </span>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
