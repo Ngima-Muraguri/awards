@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Rubik+Wet+Paint&display=swap');
 .index{
-    background: url("/static/images/image.jpg") 50% 0 no-repeat fixed;
-    color: white;
+    background: url("/static/images/indeximage.png") 50% 0 no-repeat fixed;
+    color: blue;
     height: 580px;
     /* padding: 100px 0 0 0;   */
     background-repeat: no-repeat; 

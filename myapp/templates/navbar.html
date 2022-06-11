@@ -9,7 +9,8 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-             
+                <a style ="color: black; font-weight: bold; text-decoration:none;" href="/admin" class="nav-item" active-color="black"><i class="fas fa-user-tie"></i>&nbsp;Admin Dashboard</a>
+
             </li>
         </ul>
         {% if user.is_authenticated %}
@@ -22,6 +23,7 @@
               <button class="btn btn-default" type="submit">Search</button>
 
         </form> 
+        <a class='btn btn-default' href="/home/"> Home</a>
         <a class='btn btn-default' href="{% url 'profile' %}"> Profile</a>
         <a class='btn btn-default' href="{% url 'newProject' %}">Upload Project</a>
             <a class='btn btn-default' href="/accounts/logout">Logout</a>
