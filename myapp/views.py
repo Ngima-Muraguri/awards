@@ -55,3 +55,75 @@ def search(request):
     else:
         
         return render(request, 'search.html')
+
+@login_required(login_url='/accounts/login/')
+def one_image(request, image_id):
+    try:
+        image = Projects.objects.get(id = image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+
+    return render(request, 'image.html', {'image': image})
+
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+
+    return render(request, 'profile.html')
+
+@login_required(login_url='/accounts/login/')
+def updateprofile(request):
+    # current_user = request.user
+    if request.method == 'POST':
+        user_form= UpdateUser(request.POST, instance=request.user)
+        profile_form= UpdateProfile(request.POST,request.FILES,instance=request.user.profile)
+        
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request,'Profile updated successfully!')
+
+            return redirect(to='profile')
+    else:
+        user_form =UpdateUser(instance=request.user)
+        profile_form = UpdateProfile(instance=request.user.profile)
+        
+    return render(request, 'profile.html',{'user_form':user_form, 'form':profile_form})
+
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = current_user
+            post.save()
+        return redirect('profile')
+
+    else:
+        form = ProfileForm()
+        profile = Profile.objects.all()
+        project = Projects.objects.all()
+    return render(request, 'profile.html', {'form': form, 'profile': profile, 'project': project})
+
+def profileview(request, id):
+    profile = Projects.objects.get(user=id)
+    userid = request.user.id
+
+    return render(request, 'projects.html',{"profile":profile, "userid":userid})
+
+def delete_post(request, pk):
+    post = Projects.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        try:
+            post.delete()
+            return redirect('home')
+        except Exception:
+            messages.error('Post does not exist')
+
+    context = { 'obj':post }
+    return render(request, 'delete.html', context)
