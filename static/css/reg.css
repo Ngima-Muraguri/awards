@@ -1,0 +1,30 @@
+*{
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.signin{
+    margin-top: 123px; 
+    color: orangered;
+    border: 2px solid orange;
+    border-radius: 44px;
+    box-shadow: 2px 4px white solid;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.index{
+    background-color: rgb(188, 209, 209);
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+
+}
+input[type="submit"]{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+.inde{
+    background-color: rgb(188, 209, 209);
+    color: orangered;
+    
+}
