@@ -1,4 +1,4 @@
-# INSTAGRAM-APP
+# AWARDS
 ## By Milcah Muraguri
 
 ### Table of contents
@@ -9,15 +9,15 @@
 5. Licence
 
 ### Description
-This is a django project that is a clone of the social media instagram<br>
-one can easily make a profile, post, and comment on pictures and people<br>
+This is a django project that works like awwards<br>
+one can upload their projects,rate projects and view projects by others<br>
 
 
 ### BDD
-A user should be able to view pictures posted by people<br>
+A user should be able to view projects posted by people<br>
 one can create an account<br>
-A user can search the category of photos<br>
-one can make posts
+A user can search the category of projects<br>
+one can upload their own projects
 
 ### Pre-requisites
 python3 <br>
@@ -30,7 +30,7 @@ clone the repository <br>
 create a virtual environment and activate it<br>
 navigate to project <br>
 pip3 install -r requirements.txt <br>
-psql CREATE DATABASE posts <br>
+psql CREATE DATABASE awards <br>
 python3.8 manage.py runserver <br>
 python manage.py migrate
 
