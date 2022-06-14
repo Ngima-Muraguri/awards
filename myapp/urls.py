@@ -10,9 +10,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('accounts/register/',
-        RegistrationView.as_view(success_url='/home'),
-        name='django_registration_register'),
+    path('accounts/register/',RegistrationView.as_view(success_url='/home'),name='django_registration_register'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     re_path(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'), 
