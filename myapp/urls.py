@@ -30,10 +30,8 @@ urlpatterns = [
 
     re_path(r'^api/profile/$', views.ProfileList.as_view()),
     re_path(r'^api/project/$', views.ProjectList.as_view()),
-    re_path(r'api/profile/profile-id/(?P<pk>[0-9]+)/$',
-        views.ProfileSingle.as_view()),
-    re_path(r'api/project/project-id/(?P<pk>[0-9]+)/$',
-        views.ProjectSingle.as_view())
+    # re_path(r'api/profile/profile-id/(?P<pk>[0-9]+)/$',views.ProfileSingle.as_view()),
+    # re_path(r'api/project/project-id/(?P<pk>[0-9]+)/$',views.ProjectSingle.as_view())
 
 ]
 if settings.DEBUG:
